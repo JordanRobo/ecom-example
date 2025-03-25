@@ -1,14 +1,18 @@
 <script lang="ts">
 	import type { PageProps } from "./$types";
 	import ProductCard from "$lib/components/ProductCard.svelte";
-	import { DLManager } from "xp-datalayer-manager";
+	// import { DLManager } from "xp-datalayer-manager";
 	import { onMount } from "svelte";
+    import type { Product } from "$lib/types";
 
 	let { data }: PageProps = $props();
 
-	onMount(() => {
-		DLManager.productListingView();
-	});
+	// @ts-ignore
+	let products: Product[] = data.products;
+
+	// onMount(() => {
+	// 	DLManager.productListingView();
+	// });
 </script>
 
 <div class="flex flex-col mx-auto max-w-[1200px] my-12">
@@ -17,8 +21,8 @@
 	</div>
 
 	<div class="grid place-items-center grid-cols-3 gap-4">
-		{#each data.products as product}
-			<ProductCard id={product.id} name={product.name} image={product.images[0]} price={product.listed_price} />
+		{#each products as product}
+			<ProductCard product={product} />
 		{/each}
 	</div>
 </div>

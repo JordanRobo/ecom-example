@@ -1,18 +1,13 @@
 <script lang="ts">
-	import { onMount } from "svelte";
-	import { DLManager } from "xp-datalayer-manager";
-
-	onMount(() => {
-		DLManager.homeView();
-	});
+    import { goto } from "$app/navigation";
 </script>
 
 <div class="hero bg-base-200 min-h-[620px]">
 	<div class="hero-content text-center">
 		<div class="max-w-md">
-			<h1 class="text-5xl font-bold">Hello there</h1>
-			<p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-			<button class="btn btn-primary">Get Started</button>
+			<h1 class="text-5xl font-bold">We Have So Much Data</h1>
+			<p class="py-6">Honestly, there's heaps of data, we don't have enough room for all this data! What are we going to do with all the data?!</p>
+			<button onclick={() => goto('/products')} class="btn btn-primary">View Products</button>
 		</div>
 	</div>
 </div>
